@@ -1,0 +1,52 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="https://kit.fontawesome.com/92ae2ccd1b.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+    <title><%= title %></title>
+</head>
+<body>
+    <header>
+        <%- include('partials/nav.ejs') %> <!-- Include the navbar here -->
+    </header>
+    <div class="about">
+        <h1>Welcome to FreshieGPT: Your Multi-Lingual AI Companion!</h1>
+        <h5>At FreshieGPT, we're passionate about harnessing the power of cutting-edge AI technology to enhance your digital experience. Our AI chatbot, FreshieGPT, is not your average virtual assistant - it's a Large Language Model powered by Google's state-of-the-art Pathways Language Model 2 (PaLM 2).<br>
+    
+            What Sets Us Apart:<br><br>
+            <br><br>
+            Inclusivity: FreshieGPT is designed to bridge language barriers. Unlike other AI chatbots, PaLM 2 has been meticulously trained on a staggering 100 languages, making it a true global conversational companion. No matter where you're from or what language you speak, FreshieGPT is here to help.
+            <br><br>
+            Coding Expertise: Need assistance with coding? FreshieGPT has you covered. PaLM 2 is proficient in not just natural languages but also boasts expertise in 20 programming languages. Whether you're a seasoned developer or a coding newbie, FreshieGPT can assist with your programming queries.
+            <br><br>
+            Versatility: FreshieGPT is not limited to any specific niche or industry. It's a versatile AI chatbot capable of handling a wide range of questions and tasks. Whether you're seeking information, assistance, or simply engaging in a friendly conversation, FreshieGPT is up to the task.
+            <br><br>
+            Continuous Learning: Our AI model is constantly evolving and learning from user interactions, ensuring that it stays up-to-date with the latest trends and information.
+        </h5>
+    
+    </div>
+    <script>
+        // Scroll to the bottom of the message container with a delay after the page loads
+        document.addEventListener("DOMContentLoaded", function() {
+            var messageContainer = document.getElementById("message-container");
+
+            // Adjust this value as needed to control the delay (in milliseconds)
+            var scrollDelay = 100; // 0.1 seconds delay
+
+            setTimeout(function() {
+                messageContainer.scrollTop = messageContainer.scrollHeight;
+            }, scrollDelay);
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>

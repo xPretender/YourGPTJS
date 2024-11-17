@@ -1,0 +1,97 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="https://kit.fontawesome.com/92ae2ccd1b.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+    <title><%= title %></title>
+</head>
+<body>
+    <header>
+        <%- include('partials/nav.ejs') %> <!-- Include the navbar here -->
+    </header>
+    <div class="message-container" id="message-container">
+        <% conversation.forEach(function(message) { %>
+            <% if (message.user) { %>
+                <h4>You:</h4>
+                <div class="user-message">
+                    <p><%= message.user %></p>
+                </div>
+            <% } %>
+            <% if (message.ai) { %>
+                <h4 style="align-self: flex-start;">YourGPT:</h4>
+                <div class="ai-message">
+                    <md-block><%= message.ai %></md-block>
+                </div>
+            <% } %>
+        <% }); %>
+    </div>
+    <div class="input-container">
+        <form action="/" method="POST" class="input-form">
+            <input type="text" name="prompt" placeholder="Type a message..." autocomplete="off" style="color: black;" id="prompt-input">
+            <button type="submit" class="send-button" id="submit-button">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+    <script>
+        // Scroll to the bottom of the message container with a delay after the page loads
+        document.addEventListener("DOMContentLoaded", function() {
+            var messageContainer = document.getElementById("message-container");
+
+            // Adjust this value as needed to control the delay (in milliseconds)
+            var scrollDelay = 100; // 0.1 seconds delay
+
+            setTimeout(function() {
+                messageContainer.scrollTop = messageContainer.scrollHeight;
+            }, scrollDelay);
+        });
+
+<<<<<<< HEAD
+        // document.addEventListener("DOMContentLoaded", function() {
+        // var submitButton = document.getElementById("submit-button");
+        // var promptInput = document.getElementById("prompt-input");
+
+        // submitButton.addEventListener("click", function(event) {
+        //     event.preventDefault(); // Prevent the form from submitting
+
+        //     var prompt = promptInput.value;
+        //     if (prompt !== "") {
+        //         // Send an AJAX request or perform any client-side operations here
+        //         console.log("User prompt:", prompt);
+        //     } else {
+        //         alert("Please enter a prompt.");
+        //     }
+        // });
+        // });
+=======
+        document.addEventListener("DOMContentLoaded", function() {
+        var submitButton = document.getElementById("submit-button");
+        var promptInput = document.getElementById("prompt-input");
+
+        submitButton.addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            var prompt = promptInput.value;
+            if (prompt !== "") {
+                // Send an AJAX request or perform any client-side operations here
+                console.log("User prompt:", prompt);
+            } else {
+                alert("Please enter a prompt.");
+            }
+        });
+        });
+>>>>>>> 5218ea6d028b34889a9b8beca8a4909e8022e33b
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>

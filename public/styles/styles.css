@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+*{
+    color:white;
+}
+
+/* Add styles for horizontal line between messages */
+.message hr {
+    margin: 5px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+body{
+    background: url('/img/layered-waves-haikei.svg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+}
+pre{
+  font-family: 'Poppins', sans-serif;
+}
+.message-container::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+	border-radius: 10px;
+}
+
+.message-container::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+.message-container::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-image: -webkit-gradient(linear,
+									   left bottom,
+									   left top,
+									   color-stop(0.44, rgb(122,153,217)),
+									   color-stop(0.72, rgb(73,125,189)),
+									   color-stop(0.86, rgb(28,58,148)));
+}
+.wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    /*background: linear-gradient(-135deg, #c850c0, #4158d0);*/
+    /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
+   /* background: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%);*/
+    /* clip-path: circle(25px at calc(0% + 45px) 45px); */
+    background: #F5BD02;
+    clip-path: circle(25px at calc(100% - 45px) 45px);
+    transition: all 0.3s ease-in-out;
+  }
+  #active:checked ~ .wrapper{
+    clip-path: circle(75%);
+  }
+  .menu-btn{
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    /* left: 20px; */
+    top: 20px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    /*background: linear-gradient(-135deg, #c850c0, #4158d0);*/
+    /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
+   /* background: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%); */
+    background: #F5BD02;
+    transition: all 0.3s ease-in-out;
+  }
+  #active:checked ~ .menu-btn{
+    color: #fff;
+  }
+  #active:checked ~ .menu-btn i:before{
+    content: "\f00d";
+  }
+  .wrapper ul{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+  }
+  .wrapper ul li{
+    margin: 15px 0;
+  }
+  .wrapper ul li a{
+    color: none;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 500;
+    padding: 5px 30px;
+    color: #fff;
+    border-radius: 50px;
+    background: navy;
+    position: relative;
+    line-height: 50px;
+    transition: all 0.3s ease;
+  }
+  .wrapper ul li a:after{
+    position: absolute;
+    content: "";
+    background: #fff;
+     background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+    /*background: linear-gradient(375deg, #1cc7d0, #2ede98);*/
+    width: 104%;
+    height: 110%;
+    left: -2%;
+    top: -5%; /* if the font is 'Oswald'*/
+    border-radius: 50px;
+    transform: scaleY(0);
+    z-index: -1;
+    animation: rotate 1.5s linear infinite;
+    transition: transform 0.3s ease;
+  }
+  .wrapper ul li a:hover:after{
+    transform: scaleY(1);
+  }
+  .wrapper ul li a:hover{
+    color: #fff;
+  }
+  input[type="checkbox"]{
+    display: none;
+  }
+  .content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    text-align: center;
+    width: 100%;
+    color: #202020;
+  }
+  .content .title{
+    font-size: 40px;
+    font-weight: 700;
+  }
+  .content p{
+    font-size: 35px;
+    font-weight: 600;
+  }
+  
+  @keyframes rotate {
+    0%{
+      filter: hue-rotate(0deg);
+    }
+    100%{
+      filter: hue-rotate(360deg);
+    }
+  }
+  /* Add styles for the message container */
+.message-container {
+    height: calc(100vh - 190px); /* Adjust height as needed */
+    overflow-y: scroll;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 7%;
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* Style for user messages */
+.user-message {
+    max-width: 70%;
+    margin-bottom: 10px;
+    background-color: goldenrod;
+    border: 1px solid white;
+    padding: 8px 10px;
+    border-radius: 8px;
+    align-self: flex-end;
+}
+
+/* Style for AI messages */
+.ai-message {
+    max-width: 70%;
+    margin-bottom: 10px;
+    background-color: navy;
+    border: 1px solid white;
+    padding: 8px 10px;
+    border-radius: 8px;
+    align-self: flex-start;
+}
+
+/* Style for the input container */
+.input-container {
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Style for the input form */
+.input-form {
+    width: 100%;
+    display: flex;
+}
+
+/* Style for the text input */
+.input-form input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+/* Style for the send button */
+.send-button {
+    background-color: navy;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.send-button:hover {
+    background-color: #001f3f;
+}
+
+
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.logo-container img {
+    max-height: 80px;
+    margin-right: 10px;
+}
+
+.logo-container h1 {
+    margin: 0;
+}
+input[name="prompt"] {
+    width: 80%; /* Adjust the width as needed */
+}
+#prompt-btn{
+    width: 15%;
+    background-color: navy;
+}
+.circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px; /* Adjust the size of the circle container */
+  height: 350px; /* Adjust the size of the circle container */
+  background-color: navy; /* Background color of the circle */
+  border-radius: 50%; /* Make it a circle */
+  overflow: hidden;
+}
+
+.about{
+  height: calc(100vh - 190px); /* Adjust height as needed */
+    overflow-y: scroll;
+    padding: 40px;
+    border-radius: 10px;
+    margin-top: 7%;
+    margin-bottom: 5%;
+    background-color: rgba(0, 0, 0, .3);
+}
+.container{
+  eight: calc(100vh - 190px); /* Adjust height as needed */
+    overflow-y: scroll;
+    padding: 40px;
+    border-radius: 10px;
+    margin-top: 7%;
+    margin-bottom: 5%;
+    background-color: navy;
+}
